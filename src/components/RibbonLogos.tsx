@@ -25,9 +25,9 @@ import type { IconType } from "react-icons";
 
 const RibbonLogos = () => {
   return (
-    <section className="bg-amber-200 py-24">
+    <section className="bg-amber-200 py-24 overflow-hidden">
       <h2 className="mx-4 mb-12 text-center text-2xl font-medium text-neutral-900 md:text-4xl">
-        1B+ requests tracked for users like...
+        Partnered with companies like...
       </h2>
       <div className="flex translate-y-[50%] rotate-[7deg] scale-110 overflow-hidden border-y-4 border-neutral-900 bg-neutral-50">
         <TranslateWrapper>
