@@ -3,6 +3,8 @@ import Layout from "../layouts/Layout.astro";
 import RibbonLogos from "../components/RibbonLogos";
 import BigTitle from "../components/BigTitle.astro";
 import { NeuPricing } from "../components/NeuPricing";
+import { FeatureNotifications } from "../sections/FeatureNotifications";
+
 ---
 
 <Layout title="Welcome to Marketron">
@@ -17,6 +19,7 @@ import { NeuPricing } from "../components/NeuPricing";
 		</a>
 		</div>
 		<RibbonLogos client:load />
+		<FeatureNotifications client:visible />
 		<NeuPricing client:visible />
 	</main>
 </Layout>
