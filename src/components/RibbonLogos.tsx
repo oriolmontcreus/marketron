@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import {
   SiNike,
   Si3M,
@@ -12,14 +11,11 @@ import {
   SiCloudbees,
   SiBurton,
   SiBmw,
-  SiHeroku,
   SiBuildkite,
   SiCouchbase,
   SiDailymotion,
   SiDeliveroo,
   SiEpicgames,
-  SiGenius,
-  SiGodaddy,
 } from "react-icons/si";
 import type { IconType } from "react-icons";
 
@@ -109,9 +105,6 @@ const LogoItemsBottom = () => (
     <LogoItem Icon={SiDailymotion} name="Dailymotion" />
     <LogoItem Icon={SiDeliveroo} name="deliveroo" />
     <LogoItem Icon={SiEpicgames} name="Epic Games" />
-    <LogoItem Icon={SiGenius} name="Genius" />
-    <LogoItem Icon={SiGodaddy} name="GoDaddy" />
-    <LogoItem Icon={SiHeroku} name="Heroku" />
   </>
 );
 
