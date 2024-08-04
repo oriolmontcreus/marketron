@@ -4,22 +4,69 @@ import RibbonLogos from "../components/RibbonLogos";
 import BigTitle from "../components/BigTitle.astro";
 import { NeuPricing } from "../components/NeuPricing";
 import { FeatureNotifications } from "../sections/FeatureNotifications";
-
 ---
 
 <Layout title="Welcome to Marketron">
 	<main class="text-gray-800">
 		<div class="flex flex-col items-center justify-center">
-		<BigTitle title="Marketr🎯n" />
-		<p class="text-xl md:text-2xl text-center max-w-2xl mb-8">
-			Revolutionize your marketing strategy with AI-powered insights and automation
-		</p>
-		<a href="#" class="bg-blue-600 hover:bg-blue-800 text-white font-bold border-black border-2 py-3 px-6 rounded-full text-lg transition duration-300 ease-in-out transform  mb-12">
-			Get Started Free
-		</a>
+			<BigTitle title="Marketr🎯n" />
+			<p class="text-xl md:text-2xl text-center max-w-2xl mb-8">
+				Revolutionize your marketing strategy with AI-powered insights
+				and automation
+			</p>
+			<a
+				href="#"
+				class="bg-blue-600 hover:bg-blue-800 text-white font-bold border-black border-2 py-3 px-6 rounded-full text-lg transition duration-300 ease-in-out transform mb-12"
+			>
+				Get Started Free
+			</a>
 		</div>
 		<RibbonLogos client:load />
-		<FeatureNotifications client:visible />
-		<NeuPricing client:visible />
+		<div class="w-full flex items-center justify-center gap-32 py-8">
+			<div class="text-black max-w-md">
+				<h2 class="text-5xl font-bold mb-2">
+					Stay Ahead of the Market
+				</h2>
+				<p class="text-3xl mb-4">
+					Get real-time insights and predictions at your fingertips
+				</p>
+				<ul class="text-xl space-y-2">
+					<li class="flex items-center space-x-3">
+						<span
+							class="flex-shrink-0 w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center"
+						>
+							<span class="text-white text-xs">•</span>
+						</span>
+						<span>AI-powered market trend analysis</span>
+					</li>
+					<li class="flex items-center space-x-3">
+						<span
+							class="flex-shrink-0 w-5 h-5 bg-green-500 rounded-full flex items-center justify-center"
+						>
+							<span class="text-white text-xs">•</span>
+						</span>
+						<span>Future market predictions</span>
+					</li>
+					<li class="flex items-center space-x-3">
+						<span
+							class="flex-shrink-0 w-5 h-5 bg-yellow-500 rounded-full flex items-center justify-center"
+						>
+							<span class="text-white text-xs">•</span>
+						</span>
+						<span>Real-time dashboard updates</span>
+					</li>
+					<li class="flex items-center space-x-3">
+						<span
+							class="flex-shrink-0 w-5 h-5 bg-red-500 rounded-full flex items-center justify-center"
+						>
+							<span class="text-white text-xs">•</span>
+						</span>
+						<span>Seamless API integrations</span>
+					</li>
+				</ul>
+			</div>
+			<FeatureNotifications client:visible />
+		</div>
 	</main>
+	<NeuPricing client:visible />
 </Layout>
