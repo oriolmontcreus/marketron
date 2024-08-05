@@ -40,12 +40,15 @@ export const AnimatedList = React.memo(
     const childrenArray = React.Children.toArray(children);
     const [ref, isInView] = useInView();
     const maxItems = 7;
+    const [isFirstAnimation, setIsFirstAnimation] = useState(true);
 
     useEffect(() => {
       let interval: number;
 
       if (isInView) {
-        interval = window.setInterval(() => {
+        const initialDelay = isFirstAnimation ? 100 : delay;
+
+        interval = window.setTimeout(() => {
           setIndex((prevIndex) => {
             const nextIndex = (prevIndex + 1) % childrenArray.length;
 
@@ -59,11 +62,32 @@ export const AnimatedList = React.memo(
 
             return nextIndex;
           });
-        }, delay);
+
+          setIsFirstAnimation(false);
+
+          interval = window.setInterval(() => {
+            setIndex((prevIndex) => {
+              const nextIndex = (prevIndex + 1) % childrenArray.length;
+
+              setDisplayedItems((prevItems) => {
+                const newItems = [childrenArray[nextIndex], ...prevItems];
+                if (newItems.length > maxItems) {
+                  newItems.pop();
+                }
+                return newItems;
+              });
+
+              return nextIndex;
+            });
+          }, delay);
+        }, initialDelay);
       }
 
-      return () => window.clearInterval(interval);
-    }, [childrenArray, delay, isInView]);
+      return () => {
+        window.clearTimeout(interval);
+        window.clearInterval(interval);
+      };
+    }, [childrenArray, delay, isInView, isFirstAnimation]);
 
     return (
       <div ref={ref} className={`flex flex-col items-center gap-4 ${className}`}>
