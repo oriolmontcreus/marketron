@@ -1,6 +1,9 @@
-import React, { type Dispatch, type SetStateAction, useState } from "react";
+import { type Dispatch, type SetStateAction, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { FiCheckCircle, FiXSquare } from "react-icons/fi";
+import type { CheckListItemType } from "../types/CheckListItemType";
+import type { PriceColumnProps } from "../types/PriceColumnProps";
+import type { ToggleOptionsType } from "../types/ToggleOptionsType";
 
 export const NeuPricing = () => {
     const [selected, setSelected] = useState<ToggleOptionsType>("annual");
@@ -129,7 +132,7 @@ export const NeuPricing = () => {
         }`}
       >
         {highlight && (
-          <span className="absolute right-4 top-0 -translate-y-1/2 rounded-full bg-indigo-600 px-2 py-0.5 text-xs text-white">
+          <span className="absolute right-4 top-0 -translate-y-1/2 rounded-full bg-blue-600 px-2 py-0.5 text-xs text-white">
             Most Popular
           </span>
         )}
@@ -179,7 +182,7 @@ export const NeuPricing = () => {
         <button
           className={`w-full rounded-lg p-2 text-sm uppercase text-white transition-colors ${
             highlight
-              ? "bg-indigo-600 hover:bg-indigo-700"
+              ? "bg-blue-600 hover:bg-blue-700"
               : "bg-zinc-900 hover:bg-zinc-700"
           }`}
         >
@@ -234,7 +237,7 @@ const CheckListItem = ({ children, checked }: CheckListItemType) => {
       <div className="flex items-start gap-2 text-sm">
         <div className="flex-shrink-0 mt-1">
           {checked ? (
-            <FiCheckCircle className="w-4 h-4 text-indigo-600" />
+            <FiCheckCircle className="w-4 h-4 text-blue-600" />
           ) : (
             <FiXSquare className="w-4 h-4 text-zinc-400" />
           )}
@@ -243,18 +246,3 @@ const CheckListItem = ({ children, checked }: CheckListItemType) => {
       </div>
     );
   };
-
-type PriceColumnProps = {
-  highlight?: boolean;
-  title: string;
-  price: string;
-  statement: string;
-  items: CheckListItemType[];
-};
-
-type ToggleOptionsType = "monthly" | "annual";
-
-type CheckListItemType = {
-  children: string;
-  checked: boolean;
-};
