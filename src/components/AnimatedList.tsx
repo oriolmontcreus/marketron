@@ -34,7 +34,7 @@ export interface AnimatedListProps {
 }
 
 export const AnimatedList = React.memo(
-  ({ className, children, delay = 3000 }: AnimatedListProps) => {
+  ({ className, children, delay = 2500 }: AnimatedListProps) => {
     const [index, setIndex] = useState(0);
     const [displayedItems, setDisplayedItems] = useState<React.ReactNode[]>([]);
     const childrenArray = React.Children.toArray(children);

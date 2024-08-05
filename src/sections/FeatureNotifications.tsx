@@ -1,64 +1,13 @@
 "use client";
+import type { Notification } from "../types/Notification";
+import { notifications } from "../content/notifications";
 
 import { cn } from "../utils/cn";
 import { AnimatedList } from "../components/AnimatedList";
 
-interface Item {
-  name: string;
-  description: string;
-  icon: string;
-  color: string;
-  time: string;
-}
+const expandedNotifications: Notification[] = Array.from({ length: 10 }, () => notifications).flat();
 
-let notifications = [
-  {
-    name: "Market trend detected",
-    description: "AI Analysis",
-    time: "2m ago",
-    icon: "📈",
-    color: "#00C9A7",
-  },
-  {
-    name: "New prediction ready",
-    description: "Future Market",
-    time: "10m ago",
-    icon: "🔮",
-    color: "#1E86FF",
-  },
-  {
-    name: "Dashboard updated",
-    description: "Real-time Data",
-    time: "15m ago",
-    icon: "📊",
-    color: "#FFB800",
-  },
-  {
-    name: "API integration complete",
-    description: "Data Source",
-    time: "30m ago",
-    icon: "🔗",
-    color: "#FF3D71",
-  },
-  {
-    name: "User feedback analyzed",
-    description: "Customer Insights",
-    time: "5m ago",
-    icon: "🗣️",
-    color: "#FFA500",
-  },
-  {
-    name: "New dataset available",
-    description: "Data Import",
-    time: "1h ago",
-    icon: "📂",
-    color: "#007BFF",
-  },
-];
-
-notifications = Array.from({ length: 10 }, () => notifications).flat();
-
-const Notification = ({ name, description, icon, color, time }: Item) => {
+const Notification = ({ name, description, icon, color, time }: Notification) => {
   return (
     <figure
       className={cn(
@@ -104,7 +53,7 @@ export function FeatureNotifications({
       )}
     >
       <AnimatedList>
-        {notifications.map((item, idx) => (
+        {expandedNotifications.map((item, idx) => (
           <Notification {...item} key={idx} />
         ))}
       </AnimatedList>
