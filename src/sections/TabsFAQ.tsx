@@ -54,7 +54,7 @@ const Tabs = ({
                                 animate={{ y: "0%" }}
                                 exit={{ y: "100%" }}
                                 transition={{
-                                    duration: 0.5,
+                                    duration: 0.3,
                                     ease: "backIn",
                                 }}
                                 className="absolute inset-0 z-0 bg-blue-500 text-white"
@@ -78,7 +78,7 @@ const Questions = ({ selected }: { selected: string }) => {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: 20 }}
                             transition={{
-                                duration: 0.5,
+                                duration: 0.3,
                                 ease: "backIn",
                             }}
                             className="space-y-4"
@@ -133,6 +133,10 @@ const Question = ({ question, answer }: FaqItem) => {
                 animate={{
                     height: open ? height : "0px",
                     marginBottom: open ? "24px" : "0px",
+                }}
+                transition={{
+                    duration: 0.1,
+                    ease: "backIn",
                 }}
                 className="overflow-hidden text-black"
             >
