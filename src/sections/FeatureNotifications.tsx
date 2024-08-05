@@ -40,6 +40,20 @@ let notifications = [
     icon: "🔗",
     color: "#FF3D71",
   },
+  {
+    name: "User feedback analyzed",
+    description: "Customer Insights",
+    time: "5m ago",
+    icon: "🗣️",
+    color: "#FFA500",
+  },
+  {
+    name: "New dataset available",
+    description: "Data Import",
+    time: "1h ago",
+    icon: "📂",
+    color: "#007BFF",
+  },
 ];
 
 notifications = Array.from({ length: 10 }, () => notifications).flat();
@@ -49,7 +63,6 @@ const Notification = ({ name, description, icon, color, time }: Item) => {
     <figure
       className={cn(
         "relative mx-auto min-h-fit w-full max-w-[400px] cursor-pointer overflow-hidden rounded-lg border-2 border-black p-4",
-        // animation styles
         "transition-all duration-200 ease-in-out hover:scale-[103%] bg-white",
 
       )}

@@ -1,4 +1,4 @@
-import React, { type ReactElement, useEffect, useMemo, useState, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 function useInView() {
@@ -36,32 +36,40 @@ export interface AnimatedListProps {
 export const AnimatedList = React.memo(
   ({ className, children, delay = 3000 }: AnimatedListProps) => {
     const [index, setIndex] = useState(0);
+    const [displayedItems, setDisplayedItems] = useState<React.ReactNode[]>([]);
     const childrenArray = React.Children.toArray(children);
     const [ref, isInView] = useInView();
+    const maxItems = 7;
 
     useEffect(() => {
       let interval: number;
+
       if (isInView) {
         interval = window.setInterval(() => {
-          setIndex((prevIndex) => (prevIndex + 1) % childrenArray.length);
+          setIndex((prevIndex) => {
+            const nextIndex = (prevIndex + 1) % childrenArray.length;
+
+            setDisplayedItems((prevItems) => {
+              const newItems = [childrenArray[nextIndex], ...prevItems];
+              if (newItems.length > maxItems) {
+                newItems.pop();
+              }
+              return newItems;
+            });
+
+            return nextIndex;
+          });
         }, delay);
       }
 
       return () => window.clearInterval(interval);
-    }, [childrenArray.length, delay, isInView]);
-
-    const itemsToShow = useMemo(
-      () => (isInView ? childrenArray.slice(0, index + 1).reverse() : []),
-      [index, childrenArray, isInView],
-    );
+    }, [childrenArray, delay, isInView]);
 
     return (
       <div ref={ref} className={`flex flex-col items-center gap-4 ${className}`}>
         <AnimatePresence>
-          {itemsToShow.map((item) => (
-            <AnimatedListItem key={(item as ReactElement).key}>
-              {item}
-            </AnimatedListItem>
+          {displayedItems.map((item, idx) => (
+            <AnimatedListItem key={idx}>{item}</AnimatedListItem>
           ))}
         </AnimatePresence>
       </div>
@@ -73,10 +81,17 @@ AnimatedList.displayName = "AnimatedList";
 
 export function AnimatedListItem({ children }: { children: React.ReactNode }) {
   const [ref, isInView] = useInView();
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    if (isInView && !hasAnimated) {
+      setHasAnimated(true);
+    }
+  }, [isInView, hasAnimated]);
 
   const animations = {
     initial: { scale: 0, opacity: 0 },
-    animate: isInView ? { scale: 1, opacity: 1, originY: 0 } : { scale: 0, opacity: 0 },
+    animate: hasAnimated ? { scale: 1, opacity: 1, originY: 0 } : { scale: 0, opacity: 0 },
     exit: { scale: 0, opacity: 0 },
     transition: { type: "spring", stiffness: 350, damping: 40 },
   };
