@@ -1,196 +1,120 @@
-import { type Dispatch, type SetStateAction, useState } from "react";
+import { type Dispatch, type SetStateAction, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { FiCheckCircle, FiXSquare } from "react-icons/fi";
 import type { CheckListItemType } from "../types/CheckListItemType";
 import type { PriceColumnProps } from "../types/PriceColumnProps";
 import type { ToggleOptionsType } from "../types/ToggleOptionsType";
+import { pricingPlans } from "../content/pricingPlans";
 
-export const NeuPricing = () => {
-    const [selected, setSelected] = useState<ToggleOptionsType>("annual");
-    return (
-      <div className="bg-zinc-50">
-        <section className="mx-auto max-w-7xl px-2 py-16 md:px-4">
-          <h2 className="mx-auto mb-4 max-w-2xl text-center text-3xl font-bold leading-[1.15] md:text-5xl md:leading-[1.15]">
-            Pricing Plans
-          </h2>
-          <Toggle selected={selected} setSelected={setSelected} />
-          <div className="mt-6 grid grid-cols-1 gap-6 lg:mt-8 lg:grid-cols-3 lg:gap-6">
-            <PriceColumn
-              title="Starter"
-              price={selected === "monthly" ? "49" : "39"}
-              statement="For small businesses looking to make data-driven decisions."
-              items={[
-                {
-                  children: "Real-time market trend analysis",
-                  checked: true,
-                },
-                {
-                  children: "Basic predictive analytics",
-                  checked: true,
-                },
-                {
-                  children: "5 customizable dashboards",
-                  checked: true,
-                },
-                {
-                  children: "Integration with 3 data sources",
-                  checked: true,
-                },
-                {
-                  children: "Advanced AI insights",
-                  checked: false,
-                },
-                {
-                  children: "Priority support",
-                  checked: false,
-                },
-              ]}
-            />
-            <PriceColumn
-              title="Professional"
-              price={selected === "monthly" ? "99" : "79"}
-              statement="For growing businesses needing deeper market insights."
-              highlight
-              items={[
-                {
-                  children: "Advanced real-time analysis",
-                  checked: true,
-                },
-                {
-                  children: "Comprehensive predictive analytics",
-                  checked: true,
-                },
-                {
-                  children: "Unlimited customizable dashboards",
-                  checked: true,
-                },
-                {
-                  children: "Integration with 10 data sources",
-                  checked: true,
-                },
-                {
-                  children: "Advanced AI insights",
-                  checked: true,
-                },
-                {
-                  children: "Priority support",
-                  checked: false,
-                },
-              ]}
-            />
-            <PriceColumn
-              title="Enterprise"
-              price="Custom"
-              statement="For large organizations requiring full-scale market intelligence."
-              items={[
-                {
-                  children: "Full-suite real-time analysis",
-                  checked: true,
-                },
-                {
-                  children: "Enterprise-grade predictive analytics",
-                  checked: true,
-                },
-                {
-                  children: "Unlimited customizable dashboards",
-                  checked: true,
-                },
-                {
-                  children: "Integration with unlimited data sources",
-                  checked: true,
-                },
-                {
-                  children: "Advanced AI insights with custom models",
-                  checked: true,
-                },
-                {
-                  children: "24/7 priority support",
-                  checked: true,
-                },
-              ]}
-            />
-          </div>
-        </section>
-      </div>
-    );
-  };
+export default function NeuPricing() {
+  const [selected, setSelected] = useState<ToggleOptionsType>("annual");
+  const [isClient, setIsClient] = useState(false);
 
-  const PriceColumn = ({
-    highlight,
-    title,
-    price,
-    statement,
-    items,
-  }: PriceColumnProps) => {
-    return (
-      <div
-        style={{
-          boxShadow: highlight ? "0px 4px 0px rgb(24, 24, 27)" : "",
-        }}
-        className={`relative w-full rounded-lg p-4 md:p-6 ${
-          highlight ? "border-2 border-zinc-900 bg-white" : ""
-        }`}
-      >
-        {highlight && (
-          <span className="absolute right-4 top-0 -translate-y-1/2 rounded-full bg-blue-600 px-2 py-0.5 text-xs text-white">
-            Most Popular
-          </span>
-        )}
-  
-        <p className="mb-4 text-lg font-medium">{title}</p>
-        <div className="mb-4 flex items-center gap-2">
-          <AnimatePresence mode="popLayout">
-            <motion.span
-              initial={{
-                y: 24,
-                opacity: 0,
-              }}
-              animate={{
-                y: 0,
-                opacity: 1,
-              }}
-              exit={{
-                y: -24,
-                opacity: 0,
-              }}
-              key={price}
-              transition={{
-                duration: 0.25,
-                ease: "easeInOut",
-              }}
-              className="block text-4xl font-bold"
-            >
-              ${price}
-            </motion.span>
-          </AnimatePresence>
-          <motion.div layout className="text-sm font-medium text-zinc-600">
-            <span className="block">/user</span>
-            <span className="block">/month</span>
-          </motion.div>
-        </div>
-  
-        <p className="mb-6 text-base">{statement}</p>
-  
-        <div className="mb-6 space-y-2">
-          {items.map((i) => (
-            <CheckListItem key={i.children} checked={i.checked}>
-              {i.children}
-            </CheckListItem>
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return null;
+  }
+
+  return (
+    <div className="bg-zinc-50">
+      <section className="mx-auto max-w-6xl px-4 py-12 md:px-6">
+        <h2 className="mx-auto mb-4 max-w-2xl text-center text-2xl font-bold leading-[1.15] md:text-3xl md:leading-[1.15]">
+          Pricing Plans
+        </h2>
+        <Toggle selected={selected} setSelected={setSelected} />
+        <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {pricingPlans.map((plan) => (
+            <PriceColumn
+              key={plan.title}
+              {...plan}
+              price={typeof plan.price === 'string' ? plan.price : plan.price[selected]}
+            />
           ))}
         </div>
-  
-        <button
-          className={`w-full rounded-lg p-2 text-sm uppercase text-white transition-colors ${
-            highlight
-              ? "bg-blue-600 hover:bg-blue-700"
-              : "bg-zinc-900 hover:bg-zinc-700"
-          }`}
-        >
-          Try it now
-        </button>
+      </section>
+    </div>
+  );
+}
+
+const PriceColumn = ({
+  highlight,
+  title,
+  price,
+  statement,
+  items,
+}: PriceColumnProps) => {
+  const displayPrice = typeof price === 'string' ? price : Object.values(price)[0];
+
+  return (
+    <div
+      style={{
+        boxShadow: highlight ? "0px 4px 0px rgb(24, 24, 27)" : (undefined as any),
+      }}
+      className={`relative w-full rounded-lg p-3 md:p-4 ${highlight ? "border-2 border-zinc-900 bg-white" : ""
+        }`}
+    >
+      {highlight && (
+        <span className="absolute right-3 top-0 -translate-y-1/2 rounded-full bg-blue-600 px-2 py-0.5 text-xs text-white">
+          Most Popular
+        </span>
+      )}
+
+      <p className="mb-2 text-base font-medium">{title}</p>
+      <div className="mb-3 flex items-center gap-1">
+        <AnimatePresence mode="popLayout">
+          <motion.span
+            initial={{
+              y: 24,
+              opacity: 0,
+            }}
+            animate={{
+              y: 0,
+              opacity: 1,
+            }}
+            exit={{
+              y: -24,
+              opacity: 0,
+            }}
+            key={displayPrice}
+            transition={{
+              duration: 0.25,
+              ease: "easeInOut",
+            }}
+            className="block text-3xl font-bold"
+          >
+            ${displayPrice}
+          </motion.span>
+        </AnimatePresence>
+        <motion.div layout className="text-xs font-medium text-zinc-600">
+          <span className="block">/user</span>
+          <span className="block">/month</span>
+        </motion.div>
       </div>
-    );
-  };
+
+      <p className="mb-4 text-sm">{statement}</p>
+
+      <div className="mb-4 space-y-1">
+        {items.map((item) => (
+          <CheckListItem key={item.children} checked={item.checked}>
+            {item.children}
+          </CheckListItem>
+        ))}
+      </div>
+
+      <button
+        className={`w-full rounded-lg p-2 text-xs uppercase text-white transition-colors ${highlight
+            ? "bg-blue-600 hover:bg-blue-700"
+            : "bg-zinc-900 hover:bg-zinc-700"
+          }`}
+      >
+        Try it now
+      </button>
+    </div>
+  );
+};
 
 const Toggle = ({
   selected,
@@ -218,9 +142,8 @@ const Toggle = ({
         <span className="relative z-10">Annually</span>
       </button>
       <div
-        className={`absolute inset-0 z-0 flex ${
-          selected === "annual" ? "justify-end" : "justify-start"
-        }`}
+        className={`absolute inset-0 z-0 flex ${selected === "annual" ? "justify-end" : "justify-start"
+          }`}
       >
         <motion.span
           layout
@@ -233,16 +156,16 @@ const Toggle = ({
 };
 
 const CheckListItem = ({ children, checked }: CheckListItemType) => {
-    return (
-      <div className="flex items-start gap-2 text-sm">
-        <div className="flex-shrink-0 mt-1">
-          {checked ? (
-            <FiCheckCircle className="w-4 h-4 text-blue-600" />
-          ) : (
-            <FiXSquare className="w-4 h-4 text-zinc-400" />
-          )}
-        </div>
-        <span className="flex-grow">{children}</span>
+  return (
+    <div className="flex items-start gap-2 text-sm">
+      <div className="flex-shrink-0 mt-1">
+        {checked ? (
+          <FiCheckCircle className="w-4 h-4 text-blue-600" />
+        ) : (
+          <FiXSquare className="w-4 h-4 text-zinc-400" />
+        )}
       </div>
-    );
-  };
+      <span className="flex-grow">{children}</span>
+    </div>
+  );
+};

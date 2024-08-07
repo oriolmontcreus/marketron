@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import RibbonLogos from "../components/RibbonLogos";
 import BigTitle from "../components/BigTitle.astro";
-import { NeuPricing } from "../components/NeuPricing";
+import NeuPricing from "../components/NeuPricing";
 import { FeatureNotifications } from "../sections/FeatureNotifications";
 import { TabsFAQ } from "../sections/TabsFAQ";
 ---
@@ -69,6 +69,6 @@ import { TabsFAQ } from "../sections/TabsFAQ";
 			<FeatureNotifications client:visible />
 		</div>
 	</main>
-	<NeuPricing client:visible />
+	<NeuPricing client:only="react" />
 	<TabsFAQ client:visible />
 </Layout>
