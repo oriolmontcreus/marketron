@@ -124,33 +124,32 @@ const Toggle = ({
   setSelected: Dispatch<SetStateAction<ToggleOptionsType>>;
 }) => {
   return (
-    <div className="relative mx-auto mt-3 flex w-fit items-center rounded-full bg-zinc-200">
-      <button
-        className="relative z-10 flex items-center gap-2 px-3 py-1.5 text-sm font-medium"
-        onClick={() => {
-          setSelected("monthly");
-        }}
-      >
-        <span className="relative z-10">Monthly</span>
-      </button>
-      <button
-        className="relative z-10 flex items-center gap-2 px-3 py-1.5 text-sm font-medium"
-        onClick={() => {
-          setSelected("annual");
-        }}
-      >
-        <span className="relative z-10">Annually</span>
-      </button>
-      <div
-        className={`absolute inset-0 z-0 flex ${selected === "annual" ? "justify-end" : "justify-start"
+    <div className="relative mx-auto mt-3 flex w-fit items-center rounded-full bg-zinc-200 p-1">
+      {["monthly", "annual"].map((option) => (
+        <button
+          key={option}
+          className={`relative z-10 px-10 py-1.5 text-sm font-medium transition-colors duration-200 ${
+            selected === option ? "text-zinc-900" : "text-zinc-500"
           }`}
-      >
-        <motion.span
-          layout
-          transition={{ ease: "easeInOut" }}
-          className="h-full w-1/2 rounded-full border border-zinc-900 bg-white"
-        />
-      </div>
+          onClick={() => setSelected(option as ToggleOptionsType)}
+        >
+          <span className="relative z-10">
+            {option.charAt(0).toUpperCase() + option.slice(1)}
+          </span>
+        </button>
+      ))}
+     <motion.div
+        className="absolute inset-1 z-0 w-1/2 rounded-full bg-white border border-zinc-900"
+        initial={false}
+        animate={{
+          x: selected === "annual" ? "95%" : "0%",
+        }}
+        transition={{
+          type: "tween",
+          duration: 0.15,
+          ease: "easeInOut"
+        }}
+      />
     </div>
   );
 };
