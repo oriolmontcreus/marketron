@@ -25,11 +25,11 @@ const Notification = ({ name, description, icon, color, time }: Notification) =>
           <span className="text-base sm:text-lg">{icon}</span>
         </div>
         <div className="flex flex-col overflow-hidden">
-          <figcaption className="flex flex-row items-center whitespace-pre text-sm sm:text-lg font-medium text-gray-950">
+          <div className="flex flex-row items-center whitespace-pre text-sm sm:text-lg font-medium text-gray-950">
             <span className="text-sm sm:text-lg">{name}</span>
             <span className="mx-1">·</span>
             <span className="text-xs text-gray-500">{time}</span>
-          </figcaption>
+          </div>
           <p className="text-xs sm:text-sm font-normal text-gray-950">
             {description}
           </p>
