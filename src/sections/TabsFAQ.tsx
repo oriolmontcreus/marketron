@@ -9,7 +9,7 @@ export const TabsFAQ = () => {
     const [selected, setSelected] = useState(TABS[0]);
 
     return (
-        <section className="overflow-hidden px-4 py-12 text-slate-50">
+        <section className="overflow-hidden px-4 py-12 text-white">
             <Heading />
             <Tabs selected={selected} setSelected={setSelected} />
             <Questions selected={selected} />
