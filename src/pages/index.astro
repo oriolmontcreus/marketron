@@ -5,10 +5,10 @@ import BigTitle from "../components/BigTitle.astro";
 import NeuPricing from "../components/NeuPricing";
 import { Features } from "../sections/Features";
 import { TabsFAQ } from "../sections/TabsFAQ";
+import FeaturesCards from "../components/FeaturesCards";
 ---
 
 <Layout title="Welcome to Marketron">
-	<main class="text-gray-800">
 		<div class="flex flex-col items-center justify-center">
 			<BigTitle title="Marketr🎯n" />
 			<p class="text-xl md:text-2xl text-center max-w-2xl mb-8">
@@ -110,7 +110,7 @@ import { TabsFAQ } from "../sections/TabsFAQ";
 				</div>
 			</div>
 		</div>
-	</main>
+		<FeaturesCards client:visible />
 	<NeuPricing client:only="react" />
 	<TabsFAQ client:visible />
 </Layout>
