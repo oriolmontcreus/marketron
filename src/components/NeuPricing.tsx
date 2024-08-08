@@ -22,7 +22,7 @@ export default function NeuPricing() {
     <div className="bg-zinc-50">
       <section className="mx-auto max-w-6xl px-4 py-12 md:px-6">
         <h2 className="mx-auto mb-4 max-w-2xl text-center text-2xl font-bold leading-[1.15] md:text-3xl md:leading-[1.15]">
-          Pricing Plans
+          Pricing plans
         </h2>
         <Toggle selected={selected} setSelected={setSelected} />
         <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">

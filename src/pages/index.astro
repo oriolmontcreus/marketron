@@ -5,128 +5,153 @@ import BigTitle from "../components/BigTitle.astro";
 import NeuPricing from "../components/NeuPricing";
 import { Features } from "../sections/Features";
 import { TabsFAQ } from "../sections/TabsFAQ";
-import FeaturesCards from "../components/FeaturesCards";
+import FeaturesCards from "../sections/FeaturesCards";
+import AnimatedTitle from "../components/AnimatedTitle";
+import CallToAction from "../sections/CallToAction";
 ---
 
 <Layout title="Welcome to Marketron">
-		<div class="flex flex-col items-center justify-center">
-			<BigTitle title="Marketr🎯n" />
-			<p class="text-xl md:text-2xl text-center max-w-2xl mb-8">
-				Revolutionize your marketing strategy with AI-powered insights
-				and automation
-			</p>
-			<a
-				href="#"
-				class="bg-blue-600 hover:bg-blue-800 text-white font-bold border-black border-2 py-3 px-6 rounded-full text-lg transition duration-300 ease-in-out transform mb-12"
-			>
-				Get Started Free
-			</a>
-		</div>
-		<RibbonLogos client:load />
-		<div
-			class="w-full flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16 py-8 px-4"
+	<div class="flex flex-col items-center justify-center">
+		<BigTitle title="Marketr🎯n" />
+		<p class="text-xl md:text-2xl text-center max-w-2xl mb-8">
+			Revolutionize your marketing strategy with AI-powered insights and
+			automation
+		</p>
+		<a
+			href="#"
+			class="bg-blue-600 hover:bg-blue-800 text-white font-bold border-black border-2 py-3 px-6 rounded-full text-lg transition duration-300 ease-in-out transform mb-12"
 		>
+			Get Started Free
+		</a>
+	</div>
+	<RibbonLogos client:load />
+	<div
+		class="w-full flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16 py-8 px-4"
+	>
+		<div class="text-black max-w-md">
+			<AnimatedTitle title="Stay Ahead of the Market" client:visible />
+			<p class="text-3xl mb-4">
+				Get real-time insights and predictions at your fingertips
+			</p>
+			<ul class="text-xl space-y-2">
+				<li class="flex items-center space-x-3">
+					<span
+						class="flex-shrink-0 w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center"
+					>
+						<span class="text-white text-xs">•</span>
+					</span>
+					<span>AI-powered market trend analysis</span>
+				</li>
+				<li class="flex items-center space-x-3">
+					<span
+						class="flex-shrink-0 w-5 h-5 bg-green-500 rounded-full flex items-center justify-center"
+					>
+						<span class="text-white text-xs">•</span>
+					</span>
+					<span>Future market predictions</span>
+				</li>
+				<li class="flex items-center space-x-3">
+					<span
+						class="flex-shrink-0 w-5 h-5 bg-yellow-500 rounded-full flex items-center justify-center"
+					>
+						<span class="text-white text-xs">•</span>
+					</span>
+					<span>Real-time dashboard updates</span>
+				</li>
+				<li class="flex items-center space-x-3">
+					<span
+						class="flex-shrink-0 w-5 h-5 bg-red-500 rounded-full flex items-center justify-center"
+					>
+						<span class="text-white text-xs">•</span>
+					</span>
+					<span>Seamless API integrations</span>
+				</li>
+			</ul>
+		</div>
+		<Features client:visible />
+	</div>
+	<div
+		class="flex flex-col md:flex-row justify-between items-center p-6 rounded-lg overflow-hidden"
+	>
+		<div class="w-full md:w-1/2 mb-6 md:mb-0">
 			<div class="text-black max-w-md">
-				<h2 class="text-5xl font-bold mb-2">
-					Stay Ahead of the Market
-				</h2>
+				<AnimatedTitle title="Unlock Market Potential" client:visible />
 				<p class="text-3xl mb-4">
-					Get real-time insights and predictions at your fingertips
+					Harness the power of data-driven analytics
 				</p>
-				<ul class="text-xl space-y-2">
-					<li class="flex items-center space-x-3">
-						<span
-							class="flex-shrink-0 w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center"
-						>
-							<span class="text-white text-xs">•</span>
-						</span>
-						<span>AI-powered market trend analysis</span>
-					</li>
-					<li class="flex items-center space-x-3">
-						<span
-							class="flex-shrink-0 w-5 h-5 bg-green-500 rounded-full flex items-center justify-center"
-						>
-							<span class="text-white text-xs">•</span>
-						</span>
-						<span>Future market predictions</span>
-					</li>
-					<li class="flex items-center space-x-3">
-						<span
-							class="flex-shrink-0 w-5 h-5 bg-yellow-500 rounded-full flex items-center justify-center"
-						>
-							<span class="text-white text-xs">•</span>
-						</span>
-						<span>Real-time dashboard updates</span>
-					</li>
-					<li class="flex items-center space-x-3">
-						<span
-							class="flex-shrink-0 w-5 h-5 bg-red-500 rounded-full flex items-center justify-center"
-						>
-							<span class="text-white text-xs">•</span>
-						</span>
-						<span>Seamless API integrations</span>
-					</li>
-				</ul>
 			</div>
-			<Features client:visible />
+			<p class="text-black mt-4">
+				Our advanced algorithms provide real-time insights into market
+				trends, helping you make informed decisions.
+			</p>
 		</div>
-		<div class="flex flex-col md:flex-row justify-between items-center p-6 rounded-lg overflow-hidden">
-			<div class="w-full md:w-1/2 mb-6 md:mb-0">
-				<div class="text-black max-w-md">
-					<h2 class="text-5xl font-bold mb-2">
-						Unlock Market Potential
-					</h2>
-					<p class="text-3xl mb-4">
-						Harness the power of data-driven analytics
-					</p>
-				</div>
-				<p class="text-black mt-4">Our advanced algorithms provide real-time insights into market trends, helping you make informed decisions.</p>
-			</div>
-			
-			<div class="relative w-full md:w-1/2 h-64 md:h-80">
-				<svg
-					class="w-full h-full"
-					viewBox="0 0 100 100"
-					preserveAspectRatio="none"
-				>
-					<!-- Grid lines -->
-					<line x1="0" y1="25" x2="100" y2="25" stroke="black" stroke-width="0.5"></line>
-					<line x1="0" y1="50" x2="100" y2="50" stroke="black" stroke-width="0.5"></line>
-					<line x1="0" y1="75" x2="100" y2="75" stroke="black" stroke-width="0.5"></line>
-		
-					<!-- Animated line -->
-					<polyline
-						class="graph-line"
-						points="0,60 20,50 40,55 60,45 80,50 100,10"
-						fill="none"
-						stroke="#3b82f6"
-						stroke-width="2"
-					></polyline>
-				</svg>
-		
-				<!-- Graph label -->
-				<div class="absolute bottom-0 left-0 right-0 text-center text-lg font-bold text-black">
-					Your impressions after Marketron
-				</div>
+
+		<div class="relative w-full md:w-1/2 h-64 md:h-80">
+			<svg
+				class="w-full h-full"
+				viewBox="0 0 100 100"
+				preserveAspectRatio="none"
+			>
+				<!-- Grid lines -->
+				<line
+					x1="0"
+					y1="25"
+					x2="100"
+					y2="25"
+					stroke="black"
+					stroke-width="0.5"></line>
+				<line
+					x1="0"
+					y1="50"
+					x2="100"
+					y2="50"
+					stroke="black"
+					stroke-width="0.5"></line>
+				<line
+					x1="0"
+					y1="75"
+					x2="100"
+					y2="75"
+					stroke="black"
+					stroke-width="0.5"></line>
+
+				<!-- Animated line -->
+				<polyline
+					class="graph-line"
+					points="0,60 20,50 40,55 60,45 80,50 100,10"
+					fill="none"
+					stroke="#3b82f6"
+					stroke-width="2"></polyline>
+			</svg>
+
+			<!-- Graph label -->
+			<div
+				class="absolute bottom-0 left-0 right-0 text-center text-lg font-bold text-black"
+			>
+				Your impressions after Marketron
 			</div>
 		</div>
-		<FeaturesCards client:visible />
+	</div>
+	<FeaturesCards client:visible />
 	<NeuPricing client:only="react" />
 	<TabsFAQ client:visible />
+	<div class="bg-gray-100 m-4 sm:m-8 md:m-16 lg:m-24 rounded-xl">
+		<CallToAction client:only="react" />
+	</div>
 </Layout>
 
 <style>
-    @keyframes drawLine {
-        0% {
-            stroke-dashoffset: 200;
-        }
-        100% {
-            stroke-dashoffset: 0;
-        }
-    }
+	@keyframes drawLine {
+		0% {
+			stroke-dashoffset: 200;
+		}
+		100% {
+			stroke-dashoffset: 0;
+		}
+	}
 
-    .graph-line {
-        stroke-dasharray: 200;
-        animation: drawLine 4s ease-in-out infinite;
-    }
+	.graph-line {
+		stroke-dasharray: 200;
+		animation: drawLine 4s ease-in-out infinite;
+	}
 </style>
