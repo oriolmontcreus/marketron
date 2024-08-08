@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import RibbonLogos from "../components/RibbonLogos";
 import BigTitle from "../components/BigTitle.astro";
 import NeuPricing from "../components/NeuPricing";
-import { FeatureNotifications } from "../sections/FeatureNotifications";
+import { Features } from "../sections/Features";
 import { TabsFAQ } from "../sections/TabsFAQ";
 ---
 
@@ -23,7 +23,9 @@ import { TabsFAQ } from "../sections/TabsFAQ";
 			</a>
 		</div>
 		<RibbonLogos client:load />
-		<div class="w-full flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16 py-8 px-4">
+		<div
+			class="w-full flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16 py-8 px-4"
+		>
 			<div class="text-black max-w-md">
 				<h2 class="text-5xl font-bold mb-2">
 					Stay Ahead of the Market
@@ -66,9 +68,65 @@ import { TabsFAQ } from "../sections/TabsFAQ";
 					</li>
 				</ul>
 			</div>
-			<FeatureNotifications client:visible />
+			<Features client:visible />
+		</div>
+		<div class="flex flex-col md:flex-row justify-between items-center p-6 rounded-lg overflow-hidden">
+			<div class="w-full md:w-1/2 mb-6 md:mb-0">
+				<div class="text-black max-w-md">
+					<h2 class="text-5xl font-bold mb-2">
+						Unlock Market Potential
+					</h2>
+					<p class="text-3xl mb-4">
+						Harness the power of data-driven analytics
+					</p>
+				</div>
+				<p class="text-black mt-4">Our advanced algorithms provide real-time insights into market trends, helping you make informed decisions.</p>
+			</div>
+			
+			<div class="relative w-full md:w-1/2 h-64 md:h-80">
+				<svg
+					class="w-full h-full"
+					viewBox="0 0 100 100"
+					preserveAspectRatio="none"
+				>
+					<!-- Grid lines -->
+					<line x1="0" y1="25" x2="100" y2="25" stroke="black" stroke-width="0.5"></line>
+					<line x1="0" y1="50" x2="100" y2="50" stroke="black" stroke-width="0.5"></line>
+					<line x1="0" y1="75" x2="100" y2="75" stroke="black" stroke-width="0.5"></line>
+		
+					<!-- Animated line -->
+					<polyline
+						class="graph-line"
+						points="0,60 20,50 40,55 60,45 80,50 100,10"
+						fill="none"
+						stroke="#3b82f6"
+						stroke-width="2"
+					></polyline>
+				</svg>
+		
+				<!-- Graph label -->
+				<div class="absolute bottom-0 left-0 right-0 text-center text-lg font-bold text-black">
+					Your impressions after Marketron
+				</div>
+			</div>
 		</div>
 	</main>
 	<NeuPricing client:only="react" />
 	<TabsFAQ client:visible />
 </Layout>
+
+<style>
+    @keyframes drawLine {
+        0% {
+            stroke-dashoffset: 200;
+        }
+        100% {
+            stroke-dashoffset: 0;
+        }
+    }
+
+    .graph-line {
+        stroke-dasharray: 200;
+        animation: drawLine 4s ease-in-out infinite;
+    }
+</style>

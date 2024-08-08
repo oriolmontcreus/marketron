@@ -39,7 +39,7 @@ const Notification = ({ name, description, icon, color, time }: Notification) =>
   );
 };
 
-export function FeatureNotifications({
+export function Features({
   className,
 }: {
   className?: string;
