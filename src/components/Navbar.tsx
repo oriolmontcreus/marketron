@@ -22,10 +22,9 @@ const Navbar = () => {
       className="relative mx-auto flex w-fit rounded-full border-2 border-black bg-white p-1 mt-5"
     >
       <Tab setPosition={setPosition} navRef={navRef}>Home</Tab>
-      <Tab setPosition={setPosition} navRef={navRef}>Pricing</Tab>
-      <Tab setPosition={setPosition} navRef={navRef}>Features</Tab>
-      <Tab setPosition={setPosition} navRef={navRef}>Docs</Tab>
-      <Tab setPosition={setPosition} navRef={navRef}>Blog</Tab>
+      <Tab setPosition={setPosition} navRef={navRef} href="#features">Features</Tab>
+      <Tab setPosition={setPosition} navRef={navRef} href="#pricing">Pricing</Tab>
+      <Tab setPosition={setPosition} navRef={navRef} href="#faq">FAQ</Tab>
 
       <Cursor position={position} />
     </ul>
@@ -36,10 +35,12 @@ const Tab = ({
   children,
   setPosition,
   navRef,
+  href
 }: {
   children: string;
   setPosition: Dispatch<SetStateAction<Position>>;
   navRef: React.RefObject<HTMLUListElement>;
+  href?: string;
 }) => {
   const ref = useRef<HTMLLIElement>(null);
 
@@ -74,7 +75,7 @@ const Tab = ({
       ref={ref}
       className="relative z-10 block cursor-pointer px-3 py-1.5 text-xs uppercase text-white mix-blend-difference md:px-5 md:py-3 md:text-base"
     >
-      {children}
+      <a href={href} className="block w-full h-full">{children}</a>
     </li>
   );
 };

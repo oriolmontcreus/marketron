@@ -21,7 +21,7 @@ import type { IconType } from "react-icons";
 
 const RibbonLogos = () => {
   return (
-    <section className="bg-amber-200 py-24 overflow-hidden">
+    <section className="bg-amber-200 py-8 pb-16 overflow-hidden">
       <h2 className="mx-4 mb-12 text-center text-2xl font-medium text-neutral-900 md:text-4xl">
         Partnered with companies like...
       </h2>
