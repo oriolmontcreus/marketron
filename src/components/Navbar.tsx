@@ -19,7 +19,7 @@ const Navbar = () => {
           opacity: 0,
         }));
       }}
-      className="relative mx-auto flex w-fit rounded-full border-2 border-black bg-white p-1 mt-5"
+      className="relative mx-auto flex w-fit rounded-full border-2 border-black bg-white p-2 md:p-1 mt-5 flex-wrap justify-center"
     >
       <Tab setPosition={setPosition} navRef={navRef}>Home</Tab>
       <Tab setPosition={setPosition} navRef={navRef} href="#features">Features</Tab>
@@ -73,7 +73,7 @@ const Tab = ({
   return (
     <li
       ref={ref}
-      className="relative z-10 block cursor-pointer px-3 py-1.5 text-xs uppercase text-white mix-blend-difference md:px-5 md:py-3 md:text-base"
+      className="relative z-10 block cursor-pointer px-4 py-2 text-sm uppercase text-white mix-blend-difference md:px-5 md:py-3 md:text-base"
     >
       <a href={href} className="block w-full h-full">{children}</a>
     </li>
@@ -87,7 +87,7 @@ const Cursor = ({ position }: { position: Position }) => {
       transition={{
         duration: 0,
       }}
-      className="absolute z-0 h-7 rounded-full bg-black md:h-12"
+      className="absolute z-0 h-9 rounded-full bg-black md:h-12"
     />
   );
 };
