@@ -10,7 +10,7 @@ import AnimatedTitle from "../components/AnimatedTitle";
 import CallToAction from "../sections/CallToAction";
 ---
 
-<Layout title="Welcome to Marketron">
+<Layout title="Marketr🎯n">
 	<div class="flex flex-col items-center justify-center">
 		<BigTitle title="Marketr🎯n" />
 		<p class="text-xl md:text-2xl text-center max-w-2xl mb-8">
@@ -18,7 +18,7 @@ import CallToAction from "../sections/CallToAction";
 			automation
 		</p>
 		<a
-			href="#"
+			href="/oops"
 			class="bg-blue-600 hover:bg-blue-800 text-white font-bold border-black border-2 py-3 px-6 rounded-full text-lg transition duration-300 ease-in-out transform mb-12"
 		>
 			Get Started Free
@@ -71,67 +71,68 @@ import CallToAction from "../sections/CallToAction";
 		<Features client:visible />
 	</div>
 	<div
-		class="flex flex-col md:flex-row justify-between items-center p-6 rounded-lg overflow-hidden"
-	>
-		<div class="w-full md:w-1/2 mb-6 md:mb-0">
-			<div class="text-black max-w-md">
-				<AnimatedTitle title="Unlock Market Potential" client:visible />
-				<p class="text-3xl mb-4">
-					Harness the power of data-driven analytics
-				</p>
-			</div>
-			<p class="text-black mt-4">
-				Our advanced algorithms provide real-time insights into market
-				trends, helping you make informed decisions.
+	class="flex flex-col md:flex-row justify-between items-center p-6 rounded-lg overflow-hidden gap-10"
+>
+	<!-- Reverse order for small screens -->
+	<div class="w-full md:w-1/2 mb-6 md:mb-0 order-1 md:order-2">
+		<div class="text-black max-w-md">
+			<AnimatedTitle title="Unlock Market Potential" client:visible />
+			<p class="text-3xl mb-4">
+				Harness the power of data-driven analytics
 			</p>
 		</div>
+		<p class="text-black mt-4">
+			Our advanced algorithms provide real-time insights into market
+			trends, helping you make informed decisions.
+		</p>
+	</div>
 
-		<div class="relative w-full md:w-1/2 h-64 md:h-80">
-			<svg
-				class="w-full h-full"
-				viewBox="0 0 100 100"
-				preserveAspectRatio="none"
-			>
-				<!-- Grid lines -->
-				<line
-					x1="0"
-					y1="25"
-					x2="100"
-					y2="25"
-					stroke="black"
-					stroke-width="0.5"></line>
-				<line
-					x1="0"
-					y1="50"
-					x2="100"
-					y2="50"
-					stroke="black"
-					stroke-width="0.5"></line>
-				<line
-					x1="0"
-					y1="75"
-					x2="100"
-					y2="75"
-					stroke="black"
-					stroke-width="0.5"></line>
+	<div class="relative w-full md:w-1/2 h-64 md:h-80 order-1 md:order-2">
+		<svg
+			class="w-full h-full"
+			viewBox="0 0 100 100"
+			preserveAspectRatio="none"
+		>
+			<!-- Grid lines -->
+			<line
+				x1="0"
+				y1="25"
+				x2="100"
+				y2="25"
+				stroke="black"
+				stroke-width="0.5"></line>
+			<line
+				x1="0"
+				y1="50"
+				x2="100"
+				y2="50"
+				stroke="black"
+				stroke-width="0.5"></line>
+			<line
+				x1="0"
+				y1="75"
+				x2="100"
+				y2="75"
+				stroke="black"
+				stroke-width="0.5"></line>
 
-				<!-- Animated line -->
-				<polyline
-					class="graph-line"
-					points="0,60 20,50 40,55 60,45 80,50 100,10"
-					fill="none"
-					stroke="#3b82f6"
-					stroke-width="2"></polyline>
-			</svg>
+			<!-- Animated line -->
+			<polyline
+				class="graph-line"
+				points="0,60 20,50 40,55 60,45 80,50 100,10"
+				fill="none"
+				stroke="#3b82f6"
+				stroke-width="2"></polyline>
+		</svg>
 
-			<!-- Graph label -->
-			<div
-				class="absolute bottom-0 left-0 right-0 text-center text-lg font-bold text-black"
-			>
-				Your impressions after Marketron
-			</div>
+		<!-- Graph label -->
+		<div
+			class="absolute bottom-0 left-0 right-0 text-center text-lg font-bold text-black"
+		>
+			Your impressions after Marketron
 		</div>
 	</div>
+</div>
 	<FeaturesCards client:visible />
 	<NeuPricing client:only="react" />
 	<TabsFAQ client:visible />
