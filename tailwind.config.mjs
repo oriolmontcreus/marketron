@@ -16,9 +16,6 @@ export default {
 		  animation: {
 			slide: 'slide 50s linear infinite',
 			'slide-reverse': 'slide-reverse 50s linear infinite',
-		  },
-		  colors: {
-			yellowish: '#fde68a',
 		  }
 		},
 	},

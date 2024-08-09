@@ -50,7 +50,7 @@ const FeaturesCards = () => {
               variants={cardVariants}
               className="p-6 bg-white border-black border-2 rounded-lg shadow-lg"
             >
-              <div className="flex items-center justify-center w-12 h-12 mb-4 text-3xl bg-yellowish rounded-full">
+              <div className="flex items-center justify-center w-12 h-12 mb-4 text-3xl bg-amber-200 rounded-full">
                 {feature.icon}
               </div>
               <h3 className="text-xl font-semibold">{feature.title}</h3>
