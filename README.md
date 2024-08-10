@@ -1,5 +1,6 @@
 # Marketron: AI-Powered Market Analysis Platform (Landing Page Showcase)
 
+https://github.com/user-attachments/assets/98794e2d-151e-4a15-8823-88d286db1a4f
 
 > [!NOTE]  
 > This is a project showcase for a hypothetical product. Marketron is not a real product or service.
