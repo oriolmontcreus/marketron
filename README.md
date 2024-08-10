@@ -68,7 +68,3 @@ As this is a showcase project, we're open to contributions that improve the land
 ## 📄 License
 
 This project is released under the [MIT License](LICENSE).
-
-## 📞 Support
-
-For any questions about this showcase project, please [open an issue](https://github.com/oriolmontcreus/marketron/issues).
