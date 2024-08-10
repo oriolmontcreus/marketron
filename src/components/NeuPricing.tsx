@@ -128,9 +128,7 @@ const Toggle = ({
       {["monthly", "annual"].map((option) => (
         <button
           key={option}
-          className={`relative z-10 px-10 py-1.5 text-sm font-medium transition-colors duration-200 ${
-            selected === option ? "text-zinc-900" : "text-zinc-500"
-          }`}
+          className={`relative z-10 px-10 py-1.5 text-sm font-medium transition-colors duration-200 text-black`}
           onClick={() => setSelected(option as ToggleOptionsType)}
         >
           <span className="relative z-10">
