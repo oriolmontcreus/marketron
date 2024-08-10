@@ -23,7 +23,7 @@ const OopsContent = () => {
       <div className="flex justify-center space-x-4">
         <a 
           href="/" 
-          className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300"
+          className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 text-center"
         >
           Go back
         </a>
@@ -31,7 +31,7 @@ const OopsContent = () => {
           href="https://bento.me/omont-dev" 
           target="_blank" 
           rel="noopener noreferrer" 
-          className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300"
+          className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 text-center"
         >
           Visit my Bento.me
         </a>
