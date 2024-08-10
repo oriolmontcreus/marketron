@@ -1,40 +1,73 @@
-# Marketron: AI-Powered Market Analysis Platform
+# Marketron: AI-Powered Market Analysis Platform (Landing Page Showcase)
 
-Marketron is an innovative AI-driven market analysis platform that helps businesses make data-informed decisions. Our landing page showcases the power and simplicity of our solution.
 
-## 🚀 Features
+> [!NOTE]  
+> This is a project showcase for a hypothetical product. Marketron is not a real product or service.
 
-- Real-time market trend analysis
-- Predictive analytics for future market behavior
-- Customizable dashboards and reports
-- Integration with major data sources and APIs
+Marketron is a landing page demonstration for an AI-driven market analysis platform concept. This project showcases modern web development techniques and design principles for a hypothetical SaaS product.
+
+## 🎯 Project Overview
+
+This landing page demonstrates how an AI-powered market analysis platform might be presented to potential customers. It highlights fictional features and capabilities to illustrate the potential of such a system.
+
+## 🚀 Fictional Features
+
+The landing page showcases the following conceptual features:
+
+- **Real-time Market Trend Analysis**: Illustrates how AI could provide up-to-the-minute market insights.
+- **Predictive Analytics**: Demonstrates the concept of forecasting future market behavior with AI algorithms.
+- **Customizable Dashboards**: Shows how users might tailor their view of market data.
+- **Comprehensive Reports**: Highlights the idea of generating in-depth reports effortlessly.
+- **Data Source Integration**: Illustrates the concept of connecting with various data sources and APIs.
 
 ## 🛠️ Tech Stack
 
-- [Astro](https://astro.build/) - Static Site Generator
-- [React](https://reactjs.org/) - UI Components
-- [TailwindCSS](https://tailwindcss.com/) - Styling
-- [Framer Motion](https://www.framer.com/motion/) - Animations
+This project is built using:
+
+- [Astro](https://astro.build/): Fast, modern static site generator
+- [React](https://reactjs.org/): Powerful UI component library
+- [TailwindCSS](https://tailwindcss.com/): Utility-first CSS framework for rapid UI development
+- [Framer Motion](https://www.framer.com/motion/): Production-ready animation library
 
 ## 🏁 Getting Started
 
-1. Clone the repository
+To view this project locally:
 
-   ``` bash
+1. **Clone the repository**
+
+   ```bash
    git clone https://github.com/oriolmontcreus/marketron.git
    ```
 
-2. Install dependencies
+2. **Navigate to the project directory**
 
-   ``` bash
+   ```bash
    cd marketron
+   ```
+
+3. **Install dependencies**
+
+   ```bash
    npm install
    ```
 
-3. Run the development server
+4. **Run the development server**
 
-   ``` bash
+   ```bash
    npm run dev
    ```
 
-4. Open `http://localhost:4321` in your browser
+5. **Open your browser**
+   Navigate to `http://localhost:4321` to see the landing page.
+
+## 🤝 Contributing
+
+As this is a showcase project, we're open to contributions that improve the landing page design, performance, or add interesting demo features.
+
+## 📄 License
+
+This project is released under the [MIT License](LICENSE).
+
+## 📞 Support
+
+For any questions about this showcase project, please [open an issue](https://github.com/oriolmontcreus/marketron/issues).
