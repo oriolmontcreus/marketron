@@ -15,12 +15,12 @@ const CallToAction = () => (
       <p className="max-w-xl mx-auto mt-4 text-lg text-gray-800">
         Leverage AI to stay ahead of market trends and make smarter decisions.
       </p>
-      <motion.button
-        whileHover={{ scale: 1.1 }}
-        className="px-8 py-4 mt-8 text-lg font-semibold text-white bg-black rounded-full shadow-lg"
+      <a
+        className="inline-block px-8 py-4 mt-8 text-lg font-semibold text-white bg-black rounded-full shadow-lg hover:scale-110 transition-transform duration-300 ease-in-out"
+        href="/oops"
       >
         Start Your Free Trial
-      </motion.button>
+      </a>
     </motion.div>
   </section>
 );

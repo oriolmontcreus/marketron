@@ -21,10 +21,10 @@ const Navbar = () => {
       }}
       className="relative mx-auto flex w-fit rounded-full border-2 border-black bg-white p-2 md:p-1 mt-5 flex-wrap justify-center"
     >
-      <Tab setPosition={setPosition} navRef={navRef}>Home</Tab>
-      <Tab setPosition={setPosition} navRef={navRef} href="#features">Features</Tab>
-      <Tab setPosition={setPosition} navRef={navRef} href="#pricing">Pricing</Tab>
-      <Tab setPosition={setPosition} navRef={navRef} href="#faq">FAQ</Tab>
+      <Tab setPosition={setPosition} navRef={navRef} href="/">Home</Tab>
+      <Tab setPosition={setPosition} navRef={navRef} href="/#features">Features</Tab>
+      <Tab setPosition={setPosition} navRef={navRef} href="/#pricing">Pricing</Tab>
+      <Tab setPosition={setPosition} navRef={navRef} href="/#faq">FAQ</Tab>
 
       <Cursor position={position} />
     </ul>
